@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer App</title>
+  
+  <!-- Load Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+  
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBTHqjiH3nawZwF_t93l1gmqS9tkL9sX1g",
+      authDomain: "asia-webapp-total.firebaseapp.com",
+      databaseURL: "https://asia-webapp-total-default-rtdb.firebaseio.com",
+      projectId: "asia-webapp-total",
+      storageBucket: "asia-webapp-total.firebasestorage.app",
+      messagingSenderId: "15273657880",
+      appId: "1:15273657880:web:38a789417bc5b50d06256d",
+      measurementId: "G-BMJMJ2BBEH"
+    };
+    
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    
+    // Make auth available globally
+    window.firebaseAuth = auth;
+    window.firebase = firebase;
+    
+    // Test initialization
+    console.log('Firebase initialized successfully');
+    console.log('Auth object:', auth);
+  </script>
+</head>
+<body>
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>

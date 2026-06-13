@@ -7,13 +7,14 @@
       "name": "webapp",
       "version": "1.0.0+1",
       "dependencies": [
-        "cloud_firestore",
+        "camera",
         "cupertino_icons",
-        "firebase_auth",
-        "firebase_core",
+        "flip_card",
         "flutter",
-        "flutter_facebook_auth",
-        "google_sign_in"
+        "google_fonts",
+        "intl",
+        "loading_animation_widget",
+        "mobile_scanner"
       ],
       "devDependencies": [
         "flutter_lints",
@@ -51,59 +52,57 @@
       "dependencies": []
     },
     {
-      "name": "flutter_facebook_auth",
-      "version": "7.1.7",
+      "name": "loading_animation_widget",
+      "version": "1.3.0",
       "dependencies": [
-        "facebook_auth_desktop",
-        "flutter",
-        "flutter_facebook_auth_platform_interface",
-        "flutter_facebook_auth_web"
+        "flutter"
       ]
     },
     {
-      "name": "google_sign_in",
-      "version": "6.3.0",
+      "name": "google_fonts",
+      "version": "6.3.3",
       "dependencies": [
+        "crypto",
         "flutter",
-        "google_sign_in_android",
-        "google_sign_in_ios",
-        "google_sign_in_platform_interface",
-        "google_sign_in_web"
+        "http",
+        "path_provider"
       ]
     },
     {
-      "name": "cloud_firestore",
-      "version": "6.5.0",
+      "name": "intl",
+      "version": "0.18.1",
       "dependencies": [
-        "cloud_firestore_platform_interface",
-        "cloud_firestore_web",
-        "collection",
-        "firebase_core",
-        "firebase_core_platform_interface",
-        "flutter",
-        "meta"
+        "clock",
+        "meta",
+        "path"
       ]
     },
     {
-      "name": "firebase_auth",
-      "version": "6.5.2",
+      "name": "mobile_scanner",
+      "version": "4.0.1",
       "dependencies": [
-        "firebase_auth_platform_interface",
-        "firebase_auth_web",
-        "firebase_core",
-        "firebase_core_platform_interface",
         "flutter",
-        "meta"
+        "flutter_web_plugins",
+        "js"
       ]
     },
     {
-      "name": "firebase_core",
-      "version": "4.10.0",
+      "name": "camera",
+      "version": "0.10.6",
       "dependencies": [
-        "firebase_core_platform_interface",
-        "firebase_core_web",
+        "camera_android",
+        "camera_avfoundation",
+        "camera_platform_interface",
+        "camera_web",
         "flutter",
-        "meta"
+        "flutter_plugin_android_lifecycle"
+      ]
+    },
+    {
+      "name": "flip_card",
+      "version": "0.7.0",
+      "dependencies": [
+        "flutter"
       ]
     },
     {
@@ -208,141 +207,93 @@
       ]
     },
     {
-      "name": "facebook_auth_desktop",
-      "version": "2.1.3",
+      "name": "path_provider",
+      "version": "2.1.5",
       "dependencies": [
         "flutter",
-        "flutter_facebook_auth_platform_interface",
-        "flutter_secure_storage",
-        "http"
+        "path_provider_android",
+        "path_provider_foundation",
+        "path_provider_linux",
+        "path_provider_platform_interface",
+        "path_provider_windows"
       ]
     },
     {
-      "name": "flutter_facebook_auth_web",
-      "version": "6.1.2",
+      "name": "http",
+      "version": "1.6.0",
       "dependencies": [
-        "flutter",
-        "flutter_facebook_auth_platform_interface",
-        "flutter_web_plugins",
-        "web"
-      ]
-    },
-    {
-      "name": "flutter_facebook_auth_platform_interface",
-      "version": "6.1.2",
-      "dependencies": [
-        "flutter",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "google_sign_in_web",
-      "version": "0.12.4+4",
-      "dependencies": [
-        "flutter",
-        "flutter_web_plugins",
-        "google_identity_services_web",
-        "google_sign_in_platform_interface",
-        "http",
-        "web"
-      ]
-    },
-    {
-      "name": "google_sign_in_platform_interface",
-      "version": "2.5.0",
-      "dependencies": [
-        "flutter",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "google_sign_in_ios",
-      "version": "5.9.0",
-      "dependencies": [
-        "flutter",
-        "google_sign_in_platform_interface"
-      ]
-    },
-    {
-      "name": "google_sign_in_android",
-      "version": "6.2.1",
-      "dependencies": [
-        "flutter",
-        "google_sign_in_platform_interface"
-      ]
-    },
-    {
-      "name": "firebase_core_platform_interface",
-      "version": "7.0.1",
-      "dependencies": [
-        "collection",
-        "flutter",
-        "flutter_test",
-        "meta",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "cloud_firestore_web",
-      "version": "5.5.0",
-      "dependencies": [
-        "_flutterfire_internals",
-        "cloud_firestore_platform_interface",
-        "collection",
-        "firebase_core",
-        "firebase_core_web",
-        "flutter",
-        "flutter_web_plugins"
-      ]
-    },
-    {
-      "name": "cloud_firestore_platform_interface",
-      "version": "8.0.2",
-      "dependencies": [
-        "_flutterfire_internals",
-        "collection",
-        "firebase_core",
-        "flutter",
-        "meta",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "firebase_auth_web",
-      "version": "6.2.2",
-      "dependencies": [
-        "firebase_auth_platform_interface",
-        "firebase_core",
-        "firebase_core_web",
-        "flutter",
-        "flutter_web_plugins",
+        "async",
         "http_parser",
         "meta",
         "web"
       ]
     },
     {
-      "name": "firebase_auth_platform_interface",
-      "version": "9.0.2",
+      "name": "crypto",
+      "version": "3.0.7",
       "dependencies": [
-        "_flutterfire_internals",
-        "collection",
-        "firebase_core",
-        "flutter",
-        "http",
-        "meta",
-        "plugin_platform_interface"
+        "typed_data"
       ]
     },
     {
-      "name": "firebase_core_web",
-      "version": "3.8.0",
+      "name": "js",
+      "version": "0.6.7",
       "dependencies": [
-        "firebase_core_platform_interface",
+        "meta"
+      ]
+    },
+    {
+      "name": "flutter_web_plugins",
+      "version": "0.0.0",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "flutter_plugin_android_lifecycle",
+      "version": "2.0.35",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "camera_web",
+      "version": "0.3.5+4",
+      "dependencies": [
+        "camera_platform_interface",
         "flutter",
         "flutter_web_plugins",
-        "meta",
+        "stream_transform",
         "web"
+      ]
+    },
+    {
+      "name": "camera_platform_interface",
+      "version": "2.13.0",
+      "dependencies": [
+        "cross_file",
+        "flutter",
+        "plugin_platform_interface",
+        "stream_transform"
+      ]
+    },
+    {
+      "name": "camera_avfoundation",
+      "version": "0.9.23+2",
+      "dependencies": [
+        "camera_platform_interface",
+        "flutter",
+        "stream_transform"
+      ]
+    },
+    {
+      "name": "camera_android",
+      "version": "0.10.10+18",
+      "dependencies": [
+        "camera_platform_interface",
+        "flutter",
+        "flutter_plugin_android_lifecycle",
+        "stream_transform"
       ]
     },
     {
@@ -420,142 +371,13 @@
       ]
     },
     {
-      "name": "flutter_secure_storage",
-      "version": "10.3.1",
-      "dependencies": [
-        "flutter",
-        "flutter_secure_storage_darwin",
-        "flutter_secure_storage_linux",
-        "flutter_secure_storage_platform_interface",
-        "flutter_secure_storage_web",
-        "flutter_secure_storage_windows",
-        "meta"
-      ]
-    },
-    {
-      "name": "http",
-      "version": "1.6.0",
-      "dependencies": [
-        "async",
-        "http_parser",
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
-    },
-    {
-      "name": "flutter_web_plugins",
-      "version": "0.0.0",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
-      "name": "plugin_platform_interface",
-      "version": "2.1.8",
-      "dependencies": [
-        "meta"
-      ]
-    },
-    {
-      "name": "google_identity_services_web",
-      "version": "0.3.3+1",
-      "dependencies": [
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "_flutterfire_internals",
-      "version": "1.3.72",
-      "dependencies": [
-        "collection",
-        "firebase_core",
-        "firebase_core_platform_interface",
-        "flutter",
-        "meta"
-      ]
-    },
-    {
-      "name": "http_parser",
-      "version": "4.1.2",
-      "dependencies": [
-        "collection",
-        "source_span",
-        "string_scanner",
-        "typed_data"
-      ]
-    },
-    {
-      "name": "vm_service",
-      "version": "15.2.0",
-      "dependencies": []
-    },
-    {
-      "name": "flutter_secure_storage_windows",
-      "version": "4.2.2",
+      "name": "path_provider_windows",
+      "version": "2.3.0",
       "dependencies": [
         "ffi",
         "flutter",
-        "flutter_secure_storage_platform_interface",
         "path",
-        "path_provider",
-        "path_provider_platform_interface",
-        "win32"
-      ]
-    },
-    {
-      "name": "flutter_secure_storage_web",
-      "version": "2.1.1",
-      "dependencies": [
-        "flutter",
-        "flutter_secure_storage_platform_interface",
-        "flutter_web_plugins",
-        "web"
-      ]
-    },
-    {
-      "name": "flutter_secure_storage_platform_interface",
-      "version": "2.0.1",
-      "dependencies": [
-        "flutter",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_secure_storage_linux",
-      "version": "3.0.1",
-      "dependencies": [
-        "flutter",
-        "flutter_secure_storage_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_secure_storage_darwin",
-      "version": "0.3.2",
-      "dependencies": [
-        "flutter",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "typed_data",
-      "version": "1.4.0",
-      "dependencies": [
-        "collection"
-      ]
-    },
-    {
-      "name": "win32",
-      "version": "6.3.0",
-      "dependencies": [
-        "ffi",
-        "ffi_leak_tracker",
-        "meta"
+        "path_provider_platform_interface"
       ]
     },
     {
@@ -565,45 +387,6 @@
         "flutter",
         "platform",
         "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "path_provider",
-      "version": "2.1.5",
-      "dependencies": [
-        "flutter",
-        "path_provider_android",
-        "path_provider_foundation",
-        "path_provider_linux",
-        "path_provider_platform_interface",
-        "path_provider_windows"
-      ]
-    },
-    {
-      "name": "ffi",
-      "version": "2.2.0",
-      "dependencies": []
-    },
-    {
-      "name": "ffi_leak_tracker",
-      "version": "0.1.2",
-      "dependencies": [
-        "ffi"
-      ]
-    },
-    {
-      "name": "platform",
-      "version": "3.1.6",
-      "dependencies": []
-    },
-    {
-      "name": "path_provider_windows",
-      "version": "2.3.0",
-      "dependencies": [
-        "ffi",
-        "flutter",
-        "path",
-        "path_provider_platform_interface"
       ]
     },
     {
@@ -636,6 +419,63 @@
         "jni_flutter",
         "path_provider_platform_interface"
       ]
+    },
+    {
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
+      ]
+    },
+    {
+      "name": "typed_data",
+      "version": "1.4.0",
+      "dependencies": [
+        "collection"
+      ]
+    },
+    {
+      "name": "stream_transform",
+      "version": "2.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "dependencies": [
+        "meta"
+      ]
+    },
+    {
+      "name": "cross_file",
+      "version": "0.3.5+2",
+      "dependencies": [
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "vm_service",
+      "version": "15.2.0",
+      "dependencies": []
+    },
+    {
+      "name": "ffi",
+      "version": "2.2.0",
+      "dependencies": []
+    },
+    {
+      "name": "platform",
+      "version": "3.1.6",
+      "dependencies": []
     },
     {
       "name": "xdg_directories",
@@ -740,13 +580,6 @@
         "collection",
         "meta",
         "pub_semver"
-      ]
-    },
-    {
-      "name": "crypto",
-      "version": "3.0.7",
-      "dependencies": [
-        "typed_data"
       ]
     }
   ],
