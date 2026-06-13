@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'attendance/clock_in_out_screen.dart';
+import 'certificates/certificates_screen.dart';
+import 'dashboard/volunteer_dashboard_screen.dart';
+import 'digital_id/digital_id_screen.dart';
+import 'events/events_list_screen.dart';
+import 'notifications/notifications_screen.dart';
+import 'profile/profile_screen.dart';
+import 'training/training_list_screen.dart';
+
 class VolunteerHomeScreen extends StatefulWidget {
   const VolunteerHomeScreen({super.key});
 
@@ -48,10 +57,10 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
-            gradient: LinearGradient(colors: [color.withOpacity(.9), color]),
+            gradient: LinearGradient(colors: [color.withValues(alpha: .9), color]),
             boxShadow: [
               BoxShadow(
-                color: color.withOpacity(.3),
+                color: color.withValues(alpha: .3),
                 blurRadius: 12,
                 offset: const Offset(0, 6),
               ),
@@ -86,26 +95,29 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
     );
   }
 
-  Widget statCard(String title, String value, IconData icon) {
+  Widget statCard(String title, String value, IconData icon, VoidCallback onTap) {
     return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 4),
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          boxShadow: [BoxShadow(color: Colors.grey.shade200, blurRadius: 10)],
-        ),
-        child: Column(
-          children: [
-            Icon(icon, color: Colors.blue),
-            const SizedBox(height: 10),
-            Text(
-              value,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Text(title),
-          ],
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            boxShadow: [BoxShadow(color: Colors.grey.shade200, blurRadius: 10)],
+          ),
+          child: Column(
+            children: [
+              Icon(icon, color: Colors.blue),
+              const SizedBox(height: 10),
+              Text(
+                value,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              Text(title),
+            ],
+          ),
         ),
       ),
     );
@@ -123,6 +135,22 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
           "Volunteer Portal",
           style: TextStyle(color: Colors.white),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined, color: Colors.white),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const NotificationsScreen()),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.account_circle_outlined, color: Colors.white),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const ProfileScreen()),
+            ),
+          ),
+        ],
       ),
 
       body: SingleChildScrollView(
@@ -160,9 +188,9 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
-                  statCard("Hours", "87", Icons.timer),
-                  statCard("Events", "12", Icons.event),
-                  statCard("Certs", "5", Icons.workspace_premium),
+                  statCard("Hours", "87", Icons.timer, () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ClockInOutScreen()))),
+                  statCard("Events", "12", Icons.event, () => Navigator.push(context, MaterialPageRoute(builder: (_) => const EventsListScreen()))),
+                  statCard("Certs", "5", Icons.workspace_premium, () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CertificatesScreen()))),
                 ],
               ),
             ),
@@ -182,7 +210,7 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
                     title: "Dashboard",
                     subtitle: "Overview & Analytics",
                     color: Colors.blue,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const VolunteerDashboardScreen())),
                   ),
 
                   buildMenuCard(
@@ -190,7 +218,7 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
                     title: "Browse Events",
                     subtitle: "Upcoming Opportunities",
                     color: Colors.green,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const EventsListScreen())),
                   ),
 
                   buildMenuCard(
@@ -198,7 +226,7 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
                     title: "Clock In",
                     subtitle: "Attendance Tracking",
                     color: Colors.orange,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ClockInOutScreen())),
                   ),
 
                   buildMenuCard(
@@ -206,7 +234,7 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
                     title: "Training",
                     subtitle: "Courses & Learning",
                     color: Colors.purple,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const TrainingListScreen())),
                   ),
 
                   buildMenuCard(
@@ -214,7 +242,7 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
                     title: "Certificates",
                     subtitle: "Achievements",
                     color: Colors.teal,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CertificatesScreen())),
                   ),
 
                   buildMenuCard(
@@ -222,7 +250,7 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
                     title: "Digital ID",
                     subtitle: "Volunteer Identity",
                     color: Colors.red,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const DigitalIdScreen())),
                   ),
                 ],
               ),
@@ -239,30 +267,33 @@ class _VolunteerHomeScreenState extends State<VolunteerHomeScreen>
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "Recent Activity",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
 
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
 
                   ListTile(
-                    leading: Icon(Icons.check_circle, color: Colors.green),
-                    title: Text("Joined Beach Cleanup"),
-                    subtitle: Text("2 hours ago"),
+                    leading: const Icon(Icons.check_circle, color: Colors.green),
+                    title: const Text("Joined Beach Cleanup"),
+                    subtitle: const Text("2 hours ago"),
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const EventsListScreen())),
                   ),
 
                   ListTile(
-                    leading: Icon(Icons.school, color: Colors.blue),
-                    title: Text("Completed Orientation"),
-                    subtitle: Text("Yesterday"),
+                    leading: const Icon(Icons.school, color: Colors.blue),
+                    title: const Text("Completed Orientation"),
+                    subtitle: const Text("Yesterday"),
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const TrainingListScreen())),
                   ),
 
                   ListTile(
-                    leading: Icon(Icons.card_giftcard, color: Colors.orange),
-                    title: Text("Earned Volunteer Badge"),
-                    subtitle: Text("Last week"),
+                    leading: const Icon(Icons.card_giftcard, color: Colors.orange),
+                    title: const Text("Earned Volunteer Badge"),
+                    subtitle: const Text("Last week"),
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CertificatesScreen())),
                   ),
                 ],
               ),

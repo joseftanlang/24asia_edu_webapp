@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "15273657880",
+    "firebase_url": "https://asia-webapp-total-default-rtdb.firebaseio.com",
+    "project_id": "asia-webapp-total",
+    "storage_bucket": "asia-webapp-total.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15273657880:android:fefb8f92f2845f4a06256d",
+        "android_client_info": {
+          "package_name": "android.webapp24asia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15273657880-cj7jtmss8lgfdrn8prav0rj8304rbnbm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqFzLh2pBzoZ_czMYnef41sCdi39fhI4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15273657880-cj7jtmss8lgfdrn8prav0rj8304rbnbm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "15273657880-0o851m8e1rl8ffqnvke9mntbdd0ojcd7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "apple.webapp24asia"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15273657880:android:62f24e8febef5b2706256d",
+        "android_client_info": {
+          "package_name": "com.example.webapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15273657880-cj7jtmss8lgfdrn8prav0rj8304rbnbm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqFzLh2pBzoZ_czMYnef41sCdi39fhI4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15273657880-cj7jtmss8lgfdrn8prav0rj8304rbnbm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "15273657880-0o851m8e1rl8ffqnvke9mntbdd0ojcd7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "apple.webapp24asia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
