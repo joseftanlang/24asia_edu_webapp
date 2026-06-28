@@ -1,17 +1,35 @@
-# webapp
+# Flutter PWA Wrapper
 
-A new Flutter project.
+From [https://github.com/bettysteger/flutter_pwa_wrapper](https://github.com/bettysteger/flutter_pwa_wrapper) 
 
-## Getting Started
+## Development
 
-This project is a starting point for a Flutter application.
+### Run 
 
-A few resources to get you started if this is your first Flutter project:
+Either do a `flutter run` in the console (will open iOS simulator if no device is connected) or **Run > Start Debugging** in VSCode (install [Flutter extension](https://docs.flutter.dev/get-started/editor?tab=vscode)).
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+### Add a plugin
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`flutter pub add firebase_core`
+
+### Generate app icons & splash screen
+
+See [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+
+`flutter pub run flutter_launcher_icons:main`
+
+See [splash_screen_view](https://pub.dev/packages/splash_screen_view)
+
+`flutter pub run splash_screen_view:create`
+
+### Build ios
+
+`flutter build ipa && open build/ios/archive/Runner.xcarchive`
+
+### Build android
+
+Signed with `"D:\Development\Android\Android Studio\jbr\bin\keytool.exe" -genkey -v -keystore keys\keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias FlutterApp`
+
+(i set the signing key password as some certain phrase we know 11aaaa)
+
+`flutter build appbundle --release --no-tree-shake-icons && open build/app/outputs/bundle/release/`
