@@ -1,6 +1,19 @@
-# webapp
+# to_postgres
 
-A new Flutter project.
+## Development todos 
+make the getachievementinto and getskillcolor perhaps map to database 
+
+## DEPLOYMENT TODOS 
+Add the Android app's SHA-1 fingerprint in the Firebase project [https://firebase.google.com/codelabs/firebase-auth-in-flutter-apps#6](https://firebase.google.com/codelabs/firebase-auth-in-flutter-apps#6) 
+
+### Android 
+Add google-services.json 
+
+### iOS 
+For Google sign-in: Add GoogleService-Info.plist and add to Info.plist the reversed client id. Do remember to use that different client ID for iOS/MacOS than others 
+
+### MacOS 
+Add entitlement for com.apple.security.network.client for DebugPRofile and Release 
 
 ## Getting Started
 

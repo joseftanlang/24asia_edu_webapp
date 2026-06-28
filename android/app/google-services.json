@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "203447599197",
+    "project_id": "to-postgres-88ff6",
+    "storage_bucket": "to-postgres-88ff6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203447599197:android:a4f6ae24425adfd6b00db4",
+        "android_client_info": {
+          "package_name": "com.example.to_postgres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203447599197-kudsl8bvo4on4usgh4fsk0p03908436a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl6uoUdfKd144elKMNvaFZZ9eegI5zDKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203447599197-kudsl8bvo4on4usgh4fsk0p03908436a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "203447599197-niotr417ut97ltor94mrpq3s3vu2n51b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.toPostgres"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

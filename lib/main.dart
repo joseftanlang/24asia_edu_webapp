@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
-import 'auth_page/firebase_service.dart';
-import 'auth_page/auth_screen.dart';
-import 'auth_page/home_page.dart';
-import 'setting/setting.dart';
-import 'clocking_sys.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+// to init psql
+import './database/postgres_wrapper.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() {
+import 'auth_gate.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await HybridDatabaseHandler.instance.connect(
+    host: '192.168.1.8',
+    port: 15432,
+    user: 'demo24asia',
+    password: 'demo.24ASIA',
+    database: 'demo',
+  );
+
   runApp(const MyApp());
 }
 
@@ -15,45 +28,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Volunteer App',
       theme: ThemeData(
-        primaryColor: const Color(0xff1565C0),
-        scaffoldBackgroundColor: const Color(0xffF4F7FC),
-        fontFamily: 'Roboto',
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const SettingsScreens(), // Changed to SettingsScreen
+      home: AuthGate(),
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'auth_page/firebase_service.dart';
-// import 'auth_page/auth_screen.dart';
-// import 'auth_page/home_page.dart';
-// import 'setting/setting.dart';
-// import 'clocking_sys.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Volunteer App',
-//       theme: ThemeData(
-//         primaryColor: const Color(0xff1565C0),
-//         scaffoldBackgroundColor: const Color(0xffF4F7FC),
-//         fontFamily: 'Roboto',
-//         useMaterial3: true,
-//       ),
-//       debugShowCheckedModeBanner: false,
-//       home: const ClockInOutPage(), // Now ClockInOutPage has MaterialApp as parent
-//     );
-//   }
-// }
