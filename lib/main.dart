@@ -7,13 +7,15 @@ import 'package:flutter_pwa_wrapper/push_notifications_manager.dart';
 
 class SETTINGS {
   static const title = '24asia app';
-  static const url = 'https://dev24asia.web.app/'; 
-  static const cookieDomain = null; // only necessary if you are using a subdomain and want it on the top-level domain
+  static const url = 'https://app.24asia.org/';
+  static const cookieDomain =
+      null; // only necessary if you are using a subdomain and want it on the top-level domain
 
   static const shouldAskForPushPermission = false;
   // set userAgent to prevent 403 Google 'Error: Disallowed_Useragent'
   // @see https://stackoverflow.com/a/69342626/595152
-  static const userAgent = "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Mobile Safari/537.36";
+  static const userAgent =
+      "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Mobile Safari/537.36";
 }
 
 Future<void> main() async {
@@ -56,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
     ///
     /// function setPushToken(token) { ... } // returns the device token
     /// Notification.requestPermission()
-    void javaScriptFunction (JavaScriptMessage message) async {
-      if(message.message == 'getPushToken') {
+    void javaScriptFunction(JavaScriptMessage message) async {
+      if (message.message == 'getPushToken') {
         var pnm = PushNotificationsManager.getInstance();
-        if(SETTINGS.shouldAskForPushPermission) {
+        if (SETTINGS.shouldAskForPushPermission) {
           await pnm.requestPermission();
         }
         final pushToken = await pnm.getToken();
@@ -77,10 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
     webviewController = WebViewController()
       ..loadRequest(Uri.parse(SETTINGS.url))
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..addJavaScriptChannel('flutterChannel', onMessageReceived: javaScriptFunction)
+      ..addJavaScriptChannel('flutterChannel',
+          onMessageReceived: javaScriptFunction)
       ..setUserAgent(SETTINGS.userAgent)
-      ..setNavigationDelegate(NavigationDelegate(
-        onPageFinished: (String url)  {
+      ..setNavigationDelegate(
+        NavigationDelegate(onPageFinished: (String url) {
           webviewController.runJavaScript("""
             window.Notification = {
               requestPermission: (callback) => {
@@ -89,11 +92,11 @@ class _MyHomePageState extends State<MyHomePage> {
               }
             };
           """);
-        },
-        onNavigationRequest: (NavigationRequest request) {
+        }, onNavigationRequest: (NavigationRequest request) {
           // debugPrint('onNavigationRequest ${request.url} ${request.isMainFrame}');
           Uri uri = Uri.parse(request.url);
-          if (!request.isMainFrame || uri.host == Uri.parse(SETTINGS.url).host) {
+          if (!request.isMainFrame ||
+              uri.host == Uri.parse(SETTINGS.url).host) {
             return NavigationDecision.navigate;
           }
           launchURL(uri);
@@ -101,7 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
         }),
       );
 
-    PushNotificationsManager.getInstance().init(webviewController, SETTINGS.shouldAskForPushPermission);
+    PushNotificationsManager.getInstance()
+        .init(webviewController, SETTINGS.shouldAskForPushPermission);
 
     return WebViewWidget(controller: webviewController);
   }
