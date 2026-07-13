@@ -7,7 +7,7 @@ import 'package:flutter_pwa_wrapper/push_notifications_manager.dart';
 
 class SETTINGS {
   static const title = '24asia app';
-  static const url = 'https://app.24asia.org/';
+  static const url = 'https://my24asia.web.app'; //'https://app.24asia.org/';
   static const cookieDomain =
       null; // only necessary if you are using a subdomain and want it on the top-level domain
 
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     launchURL(Uri uri) async {
       if (await canLaunchUrl(uri)) {
-        await launchUrl(uri);
+        await launchUrl(uri, mode: LaunchMode.inAppWebView);
       }
     }
 
