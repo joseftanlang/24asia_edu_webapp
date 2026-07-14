@@ -1,9 +1,13 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter_pwa_wrapper/push_notifications_manager.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart'
+    as webview_android;
 
 class SETTINGS {
   static const title = '24asia app';
@@ -16,6 +20,27 @@ class SETTINGS {
   // @see https://stackoverflow.com/a/69342626/595152
   static const userAgent =
       "Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Mobile Safari/537.36";
+}
+
+Future<List<String>> _androidFilePickerHandler(
+    webview_android.FileSelectorParams params) async {
+  try {
+    // Open Flutter's native device file selector
+    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.any,
+      allowMultiple:
+          params.mode == webview_android.FileSelectorMode.openMultiple,
+    );
+
+    if (result != null && result.files.single.path != null) {
+      // Convert the chosen file path to a URI representation for HTML5 integration
+      final fileUri = Uri.file(result.files.single.path!).toString();
+      return [fileUri];
+    }
+  } catch (e) {
+    debugPrint("File picking failed: $e");
+  }
+  return []; // Return empty list if user cancels
 }
 
 Future<void> main() async {
@@ -106,6 +131,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     PushNotificationsManager.getInstance()
         .init(webviewController, SETTINGS.shouldAskForPushPermission);
+
+    if (Platform.isAndroid) {
+      final androidController = webviewController.platform
+          as webview_android.AndroidWebViewController;
+      androidController.setOnShowFileSelector(_androidFilePickerHandler);
+    }
 
     return WebViewWidget(controller: webviewController);
   }
